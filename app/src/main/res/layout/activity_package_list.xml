@@ -20,4 +20,16 @@
         app:layout_constraintVertical_bias="0.0"
         />
 
+    <TextView
+        android:id="@+id/tv_brazil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/brasil"
+        app:layout_constraintStart_toStartOf="@id/tv_specials"
+        app:layout_constraintTop_toBottomOf="@id/tv_specials"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
