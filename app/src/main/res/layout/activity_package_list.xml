@@ -5,6 +5,17 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.activity.PackageListActivity">
+
+    <ImageView
+        android:id="@+id/ivbanner"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@color/purple_700"
+        android:contentDescription="@string/banner"
+        />
     <TextView
         android:id="@+id/tv_specials"
         android:layout_width="wrap_content"
@@ -12,6 +23,7 @@
         android:layout_margin="20dp"
         android:textSize="24sp"
         android:text="@string/especiais"
+        android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/brasil"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/tv_specials"
         app:layout_constraintTop_toBottomOf="@id/tv_specials"
         android:layout_marginTop="8dp"
