@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/item_package_card"
@@ -21,7 +22,7 @@
                 android:layout_height="100dp"
                 android:contentDescription="@string/state_image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/sao_paulo_sp"
+                tools:src="@sample/packages.json/packages/imagem"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
@@ -33,7 +34,7 @@
                 android:background="@android:drawable/screen_background_dark_transparent"
                 android:gravity="end"
                 android:padding="8dp"
-                android:text="São Paulo"
+                tools:text="@sample/packages.json/packages/local"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@id/item_package_image"
@@ -51,7 +52,7 @@
                 android:id="@+id/item_package_days"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 dias"
+                tools:text="@sample/packages.json/packages/dias"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_margin="8dp"
@@ -62,7 +63,7 @@
                 android:id="@+id/item_package_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="R$ 243,99"
+                tools:text="@sample/packages.json/packages/preco"
                 android:textSize="20sp"
                 android:layout_margin="8dp"
                 android:textColor="@android:color/holo_green_dark"
