@@ -4,8 +4,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class PackageAdapter(private val item : ArrayList<Any>) : RecyclerView.Adapter<PackageAdapter.PackageHolder>() {
-
+class PackageAdapter(private val item: ArrayList<Any>) :
+    RecyclerView.Adapter<PackageAdapter.PackageHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PackageHolder {
         TODO("Not yet implemented")
@@ -21,7 +21,7 @@ class PackageAdapter(private val item : ArrayList<Any>) : RecyclerView.Adapter<P
 
     class PackageHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun binding(){
+        fun binding() {
 
         }
     }
