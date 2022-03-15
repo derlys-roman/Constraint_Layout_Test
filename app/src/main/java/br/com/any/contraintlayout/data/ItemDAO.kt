@@ -1,9 +1,8 @@
 package br.com.any.contraintlayout.data
 
-import br.com.any.contraintlayout.R
 import br.com.any.contraintlayout.model.ItemSources
 
-class ItemDAO {
+class  ItemDAO {
 
     private val itens: ArrayList<ItemSources> = arrayListOf(
         ItemSources(

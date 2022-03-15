@@ -1,11 +1,12 @@
 package br.com.any.contraintlayout.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.inputmethod.InputBinding
-import br.com.any.contraintlayout.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.any.contraintlayout.data.ItemDAO
 import br.com.any.contraintlayout.databinding.ActivityPackageListBinding
+import br.com.any.contraintlayout.ui.adapter.PackageAdapter
+
 
 class PackageListActivity : AppCompatActivity() {
 
@@ -15,5 +16,8 @@ class PackageListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPackageListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val itens : ItemDAO = ItemDAO()
+        binding.rvlistpackage.layoutManager = LinearLayoutManager(this)
+        binding.rvlistpackage.adapter = PackageAdapter(itens.getAll())
     }
 }
