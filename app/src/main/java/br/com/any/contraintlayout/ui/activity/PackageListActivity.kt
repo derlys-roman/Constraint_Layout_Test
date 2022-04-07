@@ -16,8 +16,9 @@ class PackageListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPackageListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val itens : ItemDAO = ItemDAO()
+        title = "Packages"
+        val items = ItemDAO()
         binding.rvlistpackage.layoutManager = LinearLayoutManager(this)
-        binding.rvlistpackage.adapter = PackageAdapter(itens.getAll(), this)
+        binding.rvlistpackage.adapter = PackageAdapter(items.getAll(), this)
     }
 }

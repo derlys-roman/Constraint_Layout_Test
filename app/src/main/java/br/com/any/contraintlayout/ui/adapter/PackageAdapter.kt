@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.com.any.contraintlayout.R
 import br.com.any.contraintlayout.databinding.ItemPackageBinding
@@ -19,7 +18,6 @@ class PackageAdapter(private val itemSources: ArrayList<ItemSources>, private va
     }
 
     override fun onBindViewHolder(holder: PackageHolder, position: Int) {
-
         holder.binding(itemSources[position], context)
     }
 
@@ -40,11 +38,9 @@ class PackageAdapter(private val itemSources: ArrayList<ItemSources>, private va
             dias.text = itemSources.dias
             preco.text = itemSources.preco
             val resources = context.resources
-            var identifier =
+            val identifier =
                 resources.getIdentifier(itemSources.imagem, "drawable", context.packageName)
-            var drawable = ResourcesCompat.getDrawable(resources, identifier, null)
-            imagem.setImageDrawable(drawable)
-
+            imagem.setImageResource(identifier)
         }
     }
 }
