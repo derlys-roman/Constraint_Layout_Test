@@ -18,6 +18,6 @@ class PackageListActivity : AppCompatActivity() {
         setContentView(binding.root)
         val itens : ItemDAO = ItemDAO()
         binding.rvlistpackage.layoutManager = LinearLayoutManager(this)
-        binding.rvlistpackage.adapter = PackageAdapter(itens.getAll())
+        binding.rvlistpackage.adapter = PackageAdapter(itens.getAll(), this)
     }
 }

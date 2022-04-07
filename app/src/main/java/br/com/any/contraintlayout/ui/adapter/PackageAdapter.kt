@@ -1,19 +1,16 @@
 package br.com.any.contraintlayout.ui.adapter
 
 import android.content.Context
-import android.content.res.Resources
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.com.any.contraintlayout.R
-import br.com.any.contraintlayout.data.ItemDAO
 import br.com.any.contraintlayout.databinding.ItemPackageBinding
 import br.com.any.contraintlayout.model.ItemSources
-import com.squareup.picasso.Picasso
 
-class PackageAdapter(private val itemSources: ArrayList<ItemSources>) :
+class PackageAdapter(private val itemSources: ArrayList<ItemSources>, private val context: Context) :
     RecyclerView.Adapter<PackageAdapter.PackageHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PackageHolder {
@@ -23,7 +20,7 @@ class PackageAdapter(private val itemSources: ArrayList<ItemSources>) :
 
     override fun onBindViewHolder(holder: PackageHolder, position: Int) {
 
-        holder.binding(itemSources[position])
+        holder.binding(itemSources[position], context)
     }
 
     override fun getItemCount(): Int = itemSources.size
@@ -37,12 +34,16 @@ class PackageAdapter(private val itemSources: ArrayList<ItemSources>) :
         private val dias = bindingRecycler.itemPackageDays
         private val preco = bindingRecycler.itemPackagePrice
 
-        fun binding(itemSources: ItemSources) {
+
+        fun binding(itemSources: ItemSources, context: Context) {
             localPacote.text = itemSources.local
             dias.text = itemSources.dias
             preco.text = itemSources.preco
-
-//            imagem.setImageResource(itemSources.imagem)
+            val resources = context.resources
+            var identifier =
+                resources.getIdentifier(itemSources.imagem, "drawable", context.packageName)
+            var drawable = ResourcesCompat.getDrawable(resources, identifier, null)
+            imagem.setImageDrawable(drawable)
 
         }
     }
