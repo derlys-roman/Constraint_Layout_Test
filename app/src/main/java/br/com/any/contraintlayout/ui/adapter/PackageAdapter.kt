@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.com.any.contraintlayout.R
 import br.com.any.contraintlayout.databinding.ItemPackageBinding
@@ -36,11 +37,12 @@ class PackageAdapter(private val itemSources: ArrayList<ItemSources>, private va
         fun binding(itemSources: ItemSources, context: Context) {
             localPacote.text = itemSources.local
             dias.text = itemSources.dias
-            preco.text = itemSources.preco
+            preco.text = itemSources.price
             val resources = context.resources
             val identifier =
-                resources.getIdentifier(itemSources.imagem, "drawable", context.packageName)
-            imagem.setImageResource(identifier)
+                resources.getIdentifier(itemSources.image, "drawable", context.packageName)
+            val drawable = ResourcesCompat.getDrawableForDensity(resources,identifier,  0, null)
+            imagem.setImageDrawable(drawable)
         }
     }
 }
