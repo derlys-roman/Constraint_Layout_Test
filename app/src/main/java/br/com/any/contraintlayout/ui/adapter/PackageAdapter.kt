@@ -1,6 +1,7 @@
 package br.com.any.contraintlayout.ui.adapter
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,10 @@ import br.com.any.contraintlayout.R
 import br.com.any.contraintlayout.databinding.ItemPackageBinding
 import br.com.any.contraintlayout.model.ItemSources
 
-class PackageAdapter(private val itemSources: ArrayList<ItemSources>, private val context: Context) :
+class PackageAdapter(
+    private val itemSources: ArrayList<ItemSources>,
+    private val context: Context
+) :
     RecyclerView.Adapter<PackageAdapter.PackageHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PackageHolder {
@@ -38,11 +42,18 @@ class PackageAdapter(private val itemSources: ArrayList<ItemSources>, private va
             localPacote.text = itemSources.local
             dias.text = itemSources.dias
             preco.text = itemSources.price
+            val drawable = convertImageInDrawable(context, itemSources)
+            imagem.setImageDrawable(drawable)
+        }
+
+        private fun convertImageInDrawable(
+            context: Context,
+            itemSources: ItemSources
+        ): Drawable? {
             val resources = context.resources
             val identifier =
                 resources.getIdentifier(itemSources.image, "drawable", context.packageName)
-            val drawable = ResourcesCompat.getDrawableForDensity(resources,identifier,  0, null)
-            imagem.setImageDrawable(drawable)
+            return ResourcesCompat.getDrawableForDensity(resources, identifier, 0, null)
         }
     }
 }
